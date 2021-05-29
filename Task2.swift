@@ -140,6 +140,7 @@ private struct Solver {
                     stack.push(operate(op))
                 case .binary(let operate):
                     guard let op1 = stack.pop(), let op2 = stack.pop() else { throw Error.invalidRPNExpression(input) }
+                    #warning("needs checking associativity")
                     stack.push(operate(op2, op1))
                 }
                 continue
